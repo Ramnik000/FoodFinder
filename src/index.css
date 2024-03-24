@@ -1,8 +1,9 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
-  padding: 10px;
-  margin: 10px;
+  font-family: Impact, sans-serif;
+  background-color: #0a0a0a;
+  color: #fff;
+  padding: 20px;
+  margin: 0;
 }
 
 body::before {
@@ -10,47 +11,39 @@ body::before {
   position: fixed;
   width: 100%;
   height: 100%;
-  background-image: url('foodimgback.png');
+  background-image: url('foodhut-logo.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  filter: blur(10px); 
+  filter: blur(20px);
   z-index: -1;
 }
 
 .container {
-  padding: 0 100px;
-  
+  padding: 0 20px;
 }
 
 .next-container {
-  margin: 10;
-  background-color: white;
-  margin: 10px;
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
-  width: 47%;
-  align-items: center;
-  float:right;
-}
-.about-container {
-  margin: 10px;
-  width: 47%;
-  padding: 10px;
-  background-color: white;
+  margin: auto; /* Center horizontally */
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  float:left; 
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
 .display-4 {
   margin-top: 0;
   margin-bottom: 20px;
   text-align: center;
-  color: #333;
+  font-size: 2.5em;
+  color: #ff4081;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .input-group {
@@ -63,56 +56,87 @@ body::before {
 
 .form-control {
   flex: 1;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid #ff9800;
+  padding: 15px;
   margin-right: 10px;
+  background-color: #333;
+  color: #fff;
 }
 
 .btn-primary {
   border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  background-color: #007bff;
+  border-radius: 30px;
+  padding: 15px 30px;
+  background-color: #ff4081;
   color: #fff;
   cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .btn-primary:hover {
-  background-color: #0056b3;
+  background-color: #ff1493;
 }
 
 .recipe-card {
-  width: 250px; 
-  margin: 10px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  width: 250px;
+  margin: 20px;
+  border: 2px solid #ff9800;
+  border-radius: 30px;
   overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: white;
+  box-shadow: 0 0 20px rgba(255, 69, 0, 0.5);
+  background-color: #333;
 }
 
 .recipe-card img {
-  width: 100%; /* Ensure the image fills the container */
-  height: 150px; /* Set the height of the image */
-  object-fit: cover; /* Ensure the image maintains its aspect ratio */
-  border-radius: 8px 8px 0 0;
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 30px 30px 0 0;
 }
 
 .recipe-card .card-body {
-  padding: 15px;
-  background-color: white;
-  border-radius: 0 0 8px 8px;
+  padding: 20px;
 }
 
 .recipe-card .card-title {
-  font-size: 1.2rem;
+  font-size: 1.5em;
   margin-bottom: 10px;
+  color: #ff9800;
 }
-
 .card-deck {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust card width */
-  gap: 2em;
-  background-color: #ff9800;
+  grid-template-columns: repeat(4, minmax(250px, 1fr)); /* Adjust card width */
+  gap: 20px; /* Add gap between cards */
+  justify-content: center; /* Center cards horizontally */
+  background-color: #c2b7ab;
 }
+/* Signup.css */
+.signup-container {
+  max-width: 500px;
+  max-height: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #333; /* Background color */
+  align-items: center;
+  justify-content: center;
+}
+
+/* LoginPage.css */
+.login-container {
+  max-width: 500px;
+  max-height: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #333; /* Background color */
+  align-items: center;
+  justify-content: center;
+}
+
+

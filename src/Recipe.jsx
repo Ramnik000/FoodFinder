@@ -1,6 +1,5 @@
 import React from "react";
 
-
 const Recipe = ({ recipe }) => {
   if (!recipe) {
     return null; 
