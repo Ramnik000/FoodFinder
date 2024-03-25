@@ -1,23 +1,31 @@
 import React from 'react'
 import { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Recipe from './Recipe.jsx';
 import LoginPage from './Pages/LoginPage.js';
 import Signup from './Pages/Signup.js';
+import {useAuth } from './contexts/AuthContext.js';
 
-const App = () => {
-  return (
-    <Router>
-      <div className="container">
-        <Routes>
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/" element={<RecipePage />} />
-        </Routes>
-      </div>
-    </Router>
-  );
-}
+
+
+  const App = () => {
+    const {isAuthenticated} = useAuth();
+    return (
+    
+      <Router>
+        <div className="container">
+          <Routes>
+            <Route path="/login" element={ 
+              !isAuthenticated ? <LoginPage /> : <Navigate to='/foodapp' />}/>
+            <Route path="/" element={ 
+              !isAuthenticated ? <Signup /> : <Navigate to='/login' />}/>
+            <Route path="/foodapp" element={isAuthenticated ? <RecipePage /> : <LoginPage/>} />
+          </Routes>
+        </div>
+      </Router>
+     
+    );
+  }
 
 export default App;
 
