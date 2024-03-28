@@ -14,13 +14,15 @@ import {useAuth } from './contexts/AuthContext.js';
     
       <Router>
         <div className="container">
-          <Routes>
-            <Route path="/login" element={ 
-              !isAuthenticated ? <LoginPage /> : <Navigate to='/foodapp' />}/>
-            <Route path="/" element={ 
-              !isAuthenticated ? <Signup /> : <Navigate to='/login' />}/>
-            <Route path="/foodapp" element={isAuthenticated ? <RecipePage /> : <LoginPage/>} />
-          </Routes>
+        <Routes>
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route
+            path="/"
+            element={isAuthenticated ? <Navigate to="/foodapp" /> : <Navigate to="/signup" />}
+          />
+          <Route path="/foodapp" element={<RecipePage />} />
+        </Routes>
         </div>
       </Router>
      
