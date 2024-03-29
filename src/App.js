@@ -13,7 +13,7 @@ import {useAuth } from './contexts/AuthContext.js';
     return (
     
       <Router>
-        <div className="container">
+        <div>
         <Routes>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<Signup />} />

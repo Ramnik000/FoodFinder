@@ -31,20 +31,20 @@ const Signup = () => {
     }
 
     return (
-        <div className="container">
+        <div className="container-page">
             <h1 className="mb-4">Sign Up</h1>
             <form onSubmit={handleSignup}>
                 <div className="form-group">
-                    <input type="text" className="form-control" value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" />
+                    <input type="text" className="form-control" value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" required/>
                 </div>
                 <div className="form-group">
-                    <input type="email" className="form-control" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
+                    <input type="email" className="form-control" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" required />
                 </div>
                 <div className="form-group">
-                    <input type="password" className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
+                    <input type="password" className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" required />
                 </div>
                 <div className="form-group">
-                    <input type="password" className="form-control" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="Confirm Password" />
+                    <input type="password" className="form-control" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="Confirm Password" required />
                 </div>
                 <button type="submit" className="btn btn-primary">Sign Up</button>
                 <p className="text-center mt-3">Already have an account? <span className="login-link" onClick={() => navigate('/login')}>Login</span></p>

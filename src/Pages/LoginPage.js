@@ -19,14 +19,14 @@ const LoginPage = () => {
     }
 
     return (
-        <div className="container">
+        <div className="container-page">
             <h1 className="mb-4">Login Page</h1>
             <form onSubmit={handleLogin}>
                 <div className="form-group">
-                    <input type="email" className="form-control" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
+                    <input type="email" className="form-control" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" required />
                 </div>
                 <div className="form-group">
-                    <input type="password" className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
+                    <input type="password" className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" required />
                 </div>
                 <button type="submit" className="btn btn-primary">Login</button>
                 <p className="text-center mt-3">Forget your password? <span className="forget-password-link" onClick={() => navigate('/forget-password')}>Reset here</span></p>
