@@ -12,7 +12,11 @@ const LoginPage = () => {
         try {
             const response = await axios.post('http://localhost:3000/login', { email, password });
             console.log(response.data); // Handle the response accordingly
-            navigate('/foodapp');
+            if (response.data.status === "success") {
+                navigate('/foodapp');
+            } else {
+                console.error('Invalid email or password');
+            }
         } catch (error) {
             console.error('Error during login:', error);
         }

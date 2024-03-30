@@ -19,19 +19,27 @@ app.use('/api/auth', authRoutes);
 //mongodb connection
 mongoose.connect('mongodb://127.0.0.1:27017/authentication').then(()=> console.log('connected to mongodb')).catch((error)=>console.error("Failed to connect:", error));
 
-app.post('/signup', (req,res)=>{
+app.post('/signup', async (req,res)=>{
   const {name, email, password} = req.body;
-  User.create({name, email, password})
-  .then(user => res.json(user))
-  .catch(err=>res.json(err))
-})
+  try {
+    // Hash the password before saving it to the database
+    const hashedPassword = await bcrypt.hash(password, 10); // 10 is the saltRounds
+    const user = await User.create({name, email, password: hashedPassword});
+    res.json(user);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 app.post('/login', async (req, res) => {
   const { email, password } = req.body;
   try {
       const user = await User.findOne({ email });
+      console.log('Received email:', email);
+      console.log('Stored hashed password:', user.password);
       if (user) {
           const passwordMatch = await bcrypt.compare(password, user.password);
+          console.log('Password match:', passwordMatch);
           if (passwordMatch) {
               const accessToken = jwt.sign({ email: email }, "jwt-access-token-secret-key", { expiresIn: '1m' });
               res.json({ status: "success", token: accessToken, message: "Logged in successfully", user: user });
@@ -48,9 +56,7 @@ app.post('/login', async (req, res) => {
       res.json({ status: "error", message: error.message });
   }
 });
-app.get('/signup', (req, res) => {
-  res.redirect('/api/auth/signup');
-});
+
 
 // Redirect GET requests to /api/auth/login to /login
 app.get('/api/auth/login', (req, res) => {

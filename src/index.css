@@ -23,16 +23,16 @@ body {
   border: none;
   border-radius: 5px;
   padding: 10px;
-  width: calc(100% - 20px); /* Adjusted width for input */
+  width: calc(100% - 20px); 
 }
 
 .btn-primary {
   background-color: #76ABAE;
   border: none;
   border-radius: 5px;
-  padding: 10px 20px; /* Adjusted padding */
+  padding: 10px 20px; 
   cursor: pointer;
-  width: 100%; /* Button takes full width */
+  width: 100%; 
 }
 
 .btn-primary:hover {
@@ -56,12 +56,12 @@ body {
   color: #EEEEEE;
 }
 h1 {
-  text-align: center; /* Center align the heading */
+  text-align: center; 
 }
 .next-container {
-  margin: 50px auto; /* Adjusted margin */
+  margin: 50px auto; 
   padding: 20px;
-  max-width: 900px; /* Adjusted max-width */
+  max-width: 900px; 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -79,7 +79,7 @@ h1 {
 }
 
 .recipe-card {
-  width: 250 px; /* Adjusted width to fit four cards in a row with gap */
+  width: 250 px; 
   border: 2px solid #ff9800;
   border-radius: 30px;
   overflow: hidden;
